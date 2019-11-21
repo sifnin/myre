@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "81fc23ea-1538-4d2d-a90e-21b0c1830d4f",
+		"name": "断言",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "两种断言",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cdd5818-b733-4de7-b4ec-fb4a519525df",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"北京\");",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.weather.com.cn/data/sk/101010100.html?wd={{cy}}",
+					"protocol": "http",
+					"host": [
+						"www",
+						"weather",
+						"com",
+						"cn"
+					],
+					"path": [
+						"data",
+						"sk",
+						"101010100.html"
+					],
+					"query": [
+						{
+							"key": "wd",
+							"value": "{{cy}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
